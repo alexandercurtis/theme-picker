@@ -1,1 +1,4 @@
-This compiles OK but causes a Javascript error at runtime when the button is clicked.
+# Theme Picker
+
+Experimenting with stuff to do with components setting state on their parents.
+

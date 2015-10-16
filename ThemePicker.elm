@@ -20,7 +20,7 @@ type Action
 update : Action -> Model -> Model
 update action model =
   case action of
-    ItemSelected i -> model
+    ItemSelected i -> {model | buttonWasPressed <- True }
 
 
 view : Signal.Address Action -> Model -> Html

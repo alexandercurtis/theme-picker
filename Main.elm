@@ -27,12 +27,12 @@ update action model =
   case action of
     ThemePickerAction themePickerAction ->
       let
-        model = case themePickerAction of
+        newModel = case themePickerAction of
                   ThemePicker.ItemSelected item -> { model | theme <- item }
                   _ -> model
-        m = ThemePicker.update themePickerAction model.themePicker
+        m = ThemePicker.update themePickerAction newModel.themePicker
       in
-        { model | themePicker <- m }
+        { newModel | themePicker <- m }
 
 
 -- VIEW
