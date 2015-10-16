@@ -1,11 +1,12 @@
 module ThemePicker where
 
-
 import Html exposing (..)
 import Html.Events exposing (..)
 
+
 type alias Model =
   { buttonWasPressed : Bool }
+
 
 initialModel : Model
 initialModel = { buttonWasPressed = False }
@@ -15,10 +16,12 @@ type Action
   = ItemSelected String -- TODO: Replace String with ThemePicker specific type
 -- TODO: extend with more actions
 
+
 update : Action -> Model -> Model
 update action model =
   case action of
     ItemSelected i -> model
+
 
 view : Signal.Address Action -> Model -> Html
 view address model =

@@ -3,11 +3,13 @@ module Main where
 import ThemePicker
 import Html exposing (..)
 
+
 -- MODEL
 
 type alias Model =
   { theme : String
   , themePicker : ThemePicker.Model }
+
 
 initialModel : Model
 initialModel = { theme = "Summer", themePicker = ThemePicker.initialModel }
@@ -18,6 +20,7 @@ initialModel = { theme = "Summer", themePicker = ThemePicker.initialModel }
 type Action = NoOp
             | ThemePickerAction ThemePicker.Action
 -- TODO: Extend with more Main.Action values
+
 
 update : Action -> Model -> Model
 update action model =
@@ -43,13 +46,16 @@ view address model =
 
 -- WIRING IT TOGETHER
 
+
 inbox : Signal.Mailbox Action
 inbox =
   Signal.mailbox NoOp
 
+
 actions : Signal Action
 actions =
   inbox.signal
+
 
 model : Signal Model
 model =
