@@ -28,7 +28,8 @@ update action model =
     ThemePickerAction themePickerAction ->
       let
         newModel = case themePickerAction of
-                  ThemePicker.ItemSelected item -> { model | theme <- (ThemePicker.optionIdToSeason (.id item)) }
+                  ThemePicker.ItemSelected item ->
+                    { model | theme <- (ThemePicker.optionIdToSeason (.id item)) }
                   _ -> model
         m = ThemePicker.update themePickerAction newModel.themePicker
       in
