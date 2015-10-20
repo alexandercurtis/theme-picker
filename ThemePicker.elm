@@ -7,14 +7,17 @@ import Html.Events exposing (..)
 type alias Model =
   { itemWasSelected : Bool }
 
-type alias Item = {id: Int, value: String}
+type alias OptionItem = {id: Int, active: Bool}
 
 initialModel : Model
 initialModel = { itemWasSelected = False }
 
+optionIdToSeason : Int -> String
+optionIdToSeason id =
+  if id == 2 then "Winter" else "Autumn"
 
 type Action
-  = ItemSelected Item
+  = ItemSelected OptionItem
   | OnFocus
   | OnBlur
 
@@ -40,6 +43,6 @@ view address model =
             else
               text "" -- TODO: Is there something like Html.Nothing to use here?
           , button
-              [ onClick address (ItemSelected (Item 2 "Winter2")) ]
+              [ onClick address (ItemSelected (OptionItem 2 True)) ]
               [ text "Set theme to Winter" ]
           ]
